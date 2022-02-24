@@ -35,3 +35,32 @@ let sig = unsafe vref(spender.sigs, 0) :! %[32] in
     else
         1
 ```
+
+By default melorun provides an empty transaction to run a script in. In our
+case the script expects the spender transaction to have a specific signature.
+So we will specify our own environment in json and pass it to melorun as
+a command-line input.
+
+```bash
+melorun example.melo -e tx.json
+```
+
+```json
+{
+    "spender_tx": {
+        "kind":0,
+        "inputs":[],
+        "outputs":[],
+        "fee":0,
+        "covenants":[],
+        "data":"",
+        "sigs":[
+            "7ee7e1c88eddd41bc7b2ac4248c148ed0f1f23dbf191d9d01d33c4dbde2386ff4c29534f392ac1f6315078939905b80b410ed288c80778864699a6891bb7e509",
+            "0ebbf479b80ad2888df1ee12ad84a2d2c0ed9efbb367ea3d1f98d83abb2c3a350c1e6c8c69d32e5ee35f9030a628dc40d529ed194b9c3d2fcafe040d5a9ce209"
+        ]
+    },
+    "environment": {
+        "spender_index": 0
+    }
+}
+```
