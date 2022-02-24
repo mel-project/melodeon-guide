@@ -29,7 +29,7 @@ let txhash = env_spender_tx_hash(),
     pk1 = x"f2d6ba8084da23c40bd5bf01d477432d9370583116ddc6f362a60ca6cd0741e0",
     pk2 = x"140aac9f73036097d21c70cfd4c11032754b88461fdbdd9eaa4abe093dbde31b" in
 
-let sig = unsafe vref(spender.sigs, 0) :! %[32] in
+let sig = vref(spender.sigs, 0) in sig &&
     if !ed25519_verify(txhash, pk1, sig):
         ed25519_verify(txhash, pk2, sig)
     else
