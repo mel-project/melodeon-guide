@@ -26,6 +26,9 @@ def add(p1: Point, p2: Point) =
     }
 ```
 
+TODO: Explain equivalence of structs and their representation in terms of
+structural typing. Either here or in the section on structural typing.
+
 ### Alias Types
 
 We can also create simple aliases for existing types which have no change in
