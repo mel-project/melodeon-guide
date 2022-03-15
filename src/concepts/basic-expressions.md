@@ -1,12 +1,10 @@
-# Basic Expressions
+## Melodeon Expressions
 
-## Melodeon is expression-based
-
-Melodeon is an _expression-based_ language, which means emphasis is put on "expressions" with that evaluate to a value, rather than "statements" that produce side-effects. Thus, almost every syntax form in the language is an expression.
+Melodeon is an _expression based_ language, which means emphasis is put on "expressions" that evaluate to a value, rather than "statements" that produce side-effects. Thus, almost every syntax form in the language is an expression.
 
 In this document, we go through the most commonly used expressions and their associated syntax.
 
-## Literals
+### Literals
 
 The simplest expressions are **literals**: representations of individual values rather than calculations. In Melodeon, there are the following kinds of literals:
 
@@ -17,7 +15,7 @@ The simplest expressions are **literals**: representations of individual values 
   - **Hex literals**: Hexadecimal characters in double-quotes following `x`: `x"deadbeef"`. This represents a bytestring that contains those literal bytes, here `de ad be ef`.
 - **Struct literals**, like `Point{x: 2, y: 3}`. This represents _structs_, which we will talk about later (TODO).
 
-## Math operators
+### Math operators
 
 Melodeon has a full set of mathematical, logical, and bitwise operators.
 
