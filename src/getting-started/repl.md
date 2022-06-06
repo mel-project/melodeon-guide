@@ -1,22 +1,46 @@
-## Using The Repl
+## Using the REPL
 
-Melorun also offers an interactive repl (Read-Evaluate-Print-Loop) where you
+Melorun also offers an interactive REPL (Read-Evaluate-Print-Loop) where you
 can quickly try things out and even test functions you define in a file.
 
-The melorun repl expects to be provided with a melodeon file. It will import
-the function and type definitions in this for use in the repl.
+### Using the REPL by itself
+
+You can start the REPL by using melorun's **interactive mode**:
 
 ```
-melorun -i test.melo
+melorun -i
 ```
 
-If you just want to run a repl the file can be empty.
-
-In the repl you can define variables in a slightly more condensed syntax than
-actual melodeon. Evaluations of expressions will be printed.
+This gives you a prompt that looks something like:
 
 ```
-melorun> x = 1 + 2
-melorun> x
-1
+melorun>
+```
+
+You can type any Melodeon expression into the REPL, and it will evaluate it. For example, basic mathematical expressions work:
+
+```
+melorun> 1 + 2
+3
+melorun> 1 + 2 * 3
+7
+melorun> (1 + 2) * 3
+9
+```
+
+Throughout this book, we will often use the REPL to illustrate the semantics of Melodeon.
+
+### Loading files into the REPL
+
+By passing an argument to `melorun`, you load that program too. For example, the following program defines a function `f` that, when called, simply returns the number `3`:
+
+```
+def f() = 3
+```
+
+If you put the above content in a file named `test.melo` and run `melorun -i test.melo`, then `f()` will be available to the REPL:
+
+```
+melorun> 1 + 2 + f()
+6
 ```

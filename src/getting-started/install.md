@@ -1,6 +1,6 @@
-# Install Melodeon
+# Install melorun
 
-Welcome to Melodeon! To start writing scripts and running them you'll want to download the command-line tool, melorun.
+In this tutorial of Melodeon, we won't start by deploying full Melodeon programs to the Themelio blockchain. Instead, we use a command-line tool to run and test Melodeon programs **locally**, called `melorun`.
 
 If you have the [Rust compiler](https://www.rust-lang.org/) installed, the easiest way is simply the following:
 
@@ -8,7 +8,4 @@ If you have the [Rust compiler](https://www.rust-lang.org/) installed, the easie
 cargo install melorun
 ```
 
-If you don't have rust, you can download it using [rustup](https://rustup.rs/),
-an installer and version manager for rust.
-
-Melorun is a convenient multi-tool which compiles Melodeon code and evaluates it. The Melodeon programming language was designed to run in the Themelio blockchain's virtual machine, MelVM. It does not compile to native machine code, so melorun is handling the compiling and executing of melodeon programs in one convenient interface.
+(If you don't have Rust, you can download it from [its website](https://rust-lang.org/))
