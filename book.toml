@@ -1,9 +1,5 @@
 [book]
-authors = ["nullchinchilla, jaybutera"]
+authors = ["nullchinchilla",]
 language = "en"
 multilingual = false
 src = "src"
-title = "The Melodeon Programming Language"
-
-[output.html]
-mathjax-support = true
