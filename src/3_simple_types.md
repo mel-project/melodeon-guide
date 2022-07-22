@@ -10,7 +10,7 @@ The most important thing about types in Melodeon is that **types are sets of val
 
 An immediate consequence is that _every value belongs to an infinite number of types_. This means that it doesn't make sense to say a type `T` is _the_ type of a value `x`, only that `T` is a type of `x` or that `T` contains `x`.
 
-Thus, let's begin our discussion of Melodeon's types with the different kinds of possible.
+Thus, let's begin our discussion of Melodeon's types with the different kinds of possible values.
 
 ## Values
 
