@@ -3,19 +3,20 @@
 @import "variables.css";
 @import url("https://themelio.org/iosevka-aile/iosevka-aile.css");
 @import url("https://themelio.org/iosevka-sparkle/iosevka-sparkle.css");
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
 
 :root {
   /* Browser default font-size is 16px, this way 1 rem = 10px */
-  font-size: 62.5%;
+  font-size: 62%;
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Iosevka Aile Web", sans-serif;
   color: var(--fg);
   background-color: var(--bg);
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  /* letter-spacing: -0.02em; */
+  letter-spacing: -0.02em;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
 }
 
 code {
-  font-family: "Iosevka", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono",
+  font-family: "PT Mono", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono",
     monospace, monospace !important;
   font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
 }
@@ -40,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Iosevka Sparkle Web";
+  font-family: "Iosevka Aile Web";
 }
 
 /* Don't change font size in headers. */

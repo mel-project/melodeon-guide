@@ -8,6 +8,6 @@
 - [Advanced Types](./6_advanced_types.md)
 - [Program Structure](./7_program_structure.md)
 - [Modules and Libraries (WIP)](./8_modules_libs.md)
-- [Example Covenant (WIP)](./9_example_covenant.md)
+- [Deploying Covenants](./9_deploying_covenants.md)
 - [Formal Appendix (WIP)](./10_formal_appendix.md)
 - [Solutions to Exercises](./11_exercise_solutions.md)

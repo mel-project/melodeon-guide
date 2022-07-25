@@ -1,5 +1,5 @@
 [book]
-authors = ["nullchinchilla",]
+authors = ["nullchinchilla"]
 language = "en"
-multilingual = false
+multilingual = true
 src = "src"
