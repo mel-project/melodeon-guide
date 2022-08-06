@@ -63,7 +63,7 @@ The next step is to send a coin locked by this covenant. Let's start `melwalletd
 
 (in one terminal tab)
 
-```
+```shell
 $ melwalletd --wallet-dir ~/.wallets --network testnet
 ```
 
@@ -71,14 +71,14 @@ $ melwalletd --wallet-dir ~/.wallets --network testnet
 
 We make a wallet `demo` with a bunch of testnet play money:
 
-```
+```shell
 $ melwallet-cli create -w demo
 $ melwallet-cli unlock -w demo
 ```
 
 We can now send 100 (fake) MEL to the _covenant hash_ we saw earlier:
 
-```
+```shell
 $ melwallet-cli send -w demo --to t48rt8nvzc1kvc9s1040b7746mdgh8ty8a0pdwqc9kd6d45myq2hx0,100.0
 TRANSACTION RECIPIENTS
 Address                                                 Amount          Additional data
@@ -102,8 +102,8 @@ Note that in the following steps, we use **bash/zsh** syntax for string interpol
 
 1. **Creating the transaction**: using _any_ wallet, run the following `melwallet-cli` command:
 
-   ```
-   melwallet-cli send -w demo --force-spend 630024d8f526fa15cb53d40aec440e63ae32c636229696e312e66f311fee7c6b-0 --fee-ballast 1000 --add-covenant f020b5c7302463eda5f951d29ed1c6f7e9c7056628fb967b92653e0f9a1c15b6ad7e430021f02037290798b218b2312faa66f91191f6180c530df0fabf3f2791417e48d69d9b8b430022f020315a04b0ca34049f5f47621da1b72cdeadbf51c5aacbbe14d88a8b9d77229deb430023f20102f201064200005043005ef2010c43005f42005e5342005f25a1000442005f42005e50a00001f20043005d42005da1000542005d420023420001320020a00001f200f2010642000050430053f2010b4300544200535342005425a1000442005442005350a00001f200430052420052a10005420052420022420001320020a00001f200f2010642000050430048f2010a4300494200485342004925a1000442004942004850a00001f200430047420047a10005420047420021420001320020a00001f200101024f20102f201064200005043003df2010c43003e42003d5342003e25a1000442003e42003d50a00001f20043003c42003ca1000542003c420023420001320020a00001f200f2010642000050430032f2010b4300334200325342003325a1000442003342003250a00001f200430031420031a10005420031420022420001320020a00001f200f2010642000050430027f2010a4300284200275342002825a1000442002842002750a00001f200430026420026a10005420026420021420001320020a00001f20010102621 --dry-run > initial-prepared.hex
+   ```shell
+   $ melwallet-cli send -w demo --force-spend 630024d8f526fa15cb53d40aec440e63ae32c636229696e312e66f311fee7c6b-0 --fee-ballast 1000 --add-covenant f020b5c7302463eda5f951d29ed1c6f7e9c7056628fb967b92653e0f9a1c15b6ad7e430021f02037290798b218b2312faa66f91191f6180c530df0fabf3f2791417e48d69d9b8b430022f020315a04b0ca34049f5f47621da1b72cdeadbf51c5aacbbe14d88a8b9d77229deb430023f20102f201064200005043005ef2010c43005f42005e5342005f25a1000442005f42005e50a00001f20043005d42005da1000542005d420023420001320020a00001f200f2010642000050430053f2010b4300544200535342005425a1000442005442005350a00001f200430052420052a10005420052420022420001320020a00001f200f2010642000050430048f2010a4300494200485342004925a1000442004942004850a00001f200430047420047a10005420047420021420001320020a00001f200101024f20102f201064200005043003df2010c43003e42003d5342003e25a1000442003e42003d50a00001f20043003c42003ca1000542003c420023420001320020a00001f200f2010642000050430032f2010b4300334200325342003325a1000442003342003250a00001f200430031420031a10005420031420022420001320020a00001f200f2010642000050430027f2010a4300284200275342002825a1000442002842002750a00001f200430026420026a10005420026420021420001320020a00001f20010102621 --dry-run > initial-prepared.hex
    ```
 
    Let's unpack this command a little. It asks the `demo` wallet to format a transaction that
@@ -130,20 +130,20 @@ Note that in the following steps, we use **bash/zsh** syntax for string interpol
 2. **Signing the transaction**: we use the `themelio-crypttool` tool (which can be installed with `cargo install themelio-crypttool`) to manually sign the transaction. We sign with the three private keys (again, feel free to omit one, as this is a 2-of-3 multisig)
 
    - Sign with Alice's private key, saving the result to `signed-alice.hex`:
-     ```
+     ```shell
      $ themelio-crypttool sign-tx $(cat initial-prepared.hex) --posn 10 --secret 85f884fb8400117a29ef65b3a3ace00e7a6e1dde65479361c67e564fd00de417b5c7302463eda5f951d29ed1c6f7e9c7056628fb967b92653e0f9a1c15b6ad7e > signed-alice.hex
      ```
    - Sign with Bob's private key, saving the result to `signed-bob.hex`:
-     ```
+     ```shell
      $ themelio-crypttool sign-tx $(cat signed-alice.hex) --posn 11 --secret 820384db2898cb4abaa6662de1087c955a7e08b13abcb69c8e7941a69ff372e437290798b218b2312faa66f91191f6180c530df0fabf3f2791417e48d69d9b8b > signed-alice-bob.hex
      ```
    - Sign with Charlie's private key, saving the result to `signed-bob.hex`:
-     ```
+     ```shell
      $ themelio-crypttool sign-tx $(cat signed-alice-bob.hex) --posn 12 --secret 35f29230304c0f0e0c730758caabd121a312dec4c1c0b859a75b1b59513ab4ca315a04b0ca34049f5f47621da1b72cdeadbf51c5aacbbe14d88a8b9d77229deb > signed-alice-bob-charlie.hex
      ```
 
 3. **Sending the transaction**: we use the `send-raw` verb of `melwallet-cli`:
-   ```
+   ```shell
    $ melwallet-cli send-raw -w demo $(cat signed-alice-bob-charlie.hex)
    TRANSACTION RECIPIENTS
    Address                                                 Amount         Additional data

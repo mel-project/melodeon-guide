@@ -29,10 +29,12 @@ code {
   font-family: "PT Mono", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono",
     monospace, monospace !important;
   font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
+  word-wrap: break-word;
 }
 
 pre {
   line-height: 1.5;
+  white-space: pre-wrap;
 }
 
 h1,
