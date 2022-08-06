@@ -3,3 +3,6 @@ authors = ["nullchinchilla"]
 language = "en"
 multilingual = true
 src = "src"
+
+[output.html]
+curly-quotes=true

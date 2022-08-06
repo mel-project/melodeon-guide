@@ -9,5 +9,5 @@
 - [Program Structure](./7_program_structure.md)
 - [Modules and Libraries (WIP)](./8_modules_libs.md)
 - [Deploying Covenants](./9_deploying_covenants.md)
-- [Formal Appendix (WIP)](./10_formal_appendix.md)
+- [Covenant Design Patterns (WIP)](./10_covenant_patterns.md)
 - [Solutions to Exercises](./11_exercise_solutions.md)
