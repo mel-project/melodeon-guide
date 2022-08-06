@@ -14,9 +14,9 @@ ed25519_signed_by(charlie_public_key, 12)) >= 2
 
 More precisely, this checks that _at least 2_ of the following must be true:
 
-- the 9th signature (indices in Melodeon start with 0, so `10` is the 9th signature) of the spending transaction is a valid signature from Alice
-- the 10th signature is a valid signature from Bob
-- the 11th signature is a valid signature from Charlie
+- the 11th signature (indices in Melodeon start with 0, so `10` is the 11th signature) of the spending transaction is a valid signature from Alice
+- the 12th signature is a valid signature from Bob
+- the 13th signature is a valid signature from Charlie
 
 (see the TODO for `ed25519_signed_by`)
 
