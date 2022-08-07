@@ -135,7 +135,7 @@ Hmm... _what_ transaction is `melorun` handing to the covenant and getting rejec
 > []
 > ```
 
-We can instead specify a _spend context_ (more info in TODO), which contains further information about the transaction to generate for testing the covenant. Make a file `context.yaml` containing:
+We can instead specify a [_spend context_](https://github.com/themeliolabs/melorun/#spend-context), which contains further information about the transaction to generate for testing the covenant. Make a file `context.yaml` containing:
 
 ```
 spender_outputs:

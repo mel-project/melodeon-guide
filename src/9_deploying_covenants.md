@@ -22,7 +22,7 @@ More precisely, this checks that _at least 2_ of the following must be true:
 
 ## Testing covenants before deployment
 
-Both `melorun` and [the online playground](https://play.melodeon.org) support specifying the **spend environment**. This is a special, [YAML-formatted](https://en.wikipedia.org/wiki/YAML) document that allows you to specify a particular spending transaction without constructing every field of it manually --- see its spec TODO.
+Both `melorun` and [the online playground](https://play.melodeon.org) support specifying the **spend context**. This is a special, [YAML-formatted](https://en.wikipedia.org/wiki/YAML) document that allows you to specify a particular spending transaction without constructing every field of it manually --- see [its spec](https://github.com/themeliolabs/melorun/#spend-context).
 
 Here, we only care about the `ed25519_signers`, which is a mapping betwween an integer `n` and the _private_ key that signs the `n`th signature of the transaction. Put this in the spend environment:
 
