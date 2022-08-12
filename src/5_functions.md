@@ -9,7 +9,7 @@ def function_name(arg_1: type_1, arg_2: type_2, ..., arg_n: type_n) =
     expression
 ```
 
-Argument type annotations are mandatory, as explained in the section on [type inference](simple_types.md). The function body must be a _single_ expression.
+Argument type annotations are mandatory, as explained in the section on [type inference](3_simple_types.md). The function body must be a _single_ expression.
 
 Examples:
 

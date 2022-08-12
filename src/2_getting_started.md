@@ -129,7 +129,7 @@ Hmm... _what_ transaction is `melorun` handing to the covenant and getting rejec
 > ```
 > melorun> env_spender_tx()
 > - : Transaction
-> [0, [], [], 0, [], "", []]
+> [0, [[x"0000000000000000000000000000000000000000000000000000000000000000", 0]], [], 0, [x"420000"], "", []]
 > melorun> env_spender_tx().outputs
 > - : [CoinData;]
 > []

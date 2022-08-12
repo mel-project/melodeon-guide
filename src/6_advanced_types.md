@@ -94,8 +94,8 @@ def members_sum_loop<$n>(vec: [Nat; $n]) =
     let x = 0 :: Nat in
     let i = 0 :: Nat in
     loop $n do
-    	set! x = x + vec[i];
-    	set! i = i + 1
+    	x <- x + vec[i];
+    	i <- i + 1
     	return x
 
 def members_sum_fold<$n>(vec: [Nat; $n]) =
@@ -458,20 +458,6 @@ melorun> unsafe let x = 1 :! %[] in x is %[]
 0
 
 ```
-
-At compile-time, `x :! Nat` tells the compiler that `x` has type `Nat`. Observe what the compiler tells us when we attempt to do occurrence typing using the test `x is Nat`:
-
-```
-
-melorun> unsafe let x = [] :! Nat in (if x is Nat then x + 1 else x)
-Melodeon compilation failed
-error: cannot append values of types Nothing and [{1}]
-if x is Nat then x + 1 else x ++ [1]
-^~~~~~~~
-
-```
-
-It says that `x` has type `Nothing` in the else branch! That's because it knows that `x` has type `Nat` from the transmutation, _and_ that `x` does not belong to `Nat` from occurrence typing: this is the `x` in the `else` branch of the `if`, and the only way to get to this branch is if `x is Nat` returns false. Now, nothing is both in the set `Nat` and not in it, so the only valid type left to assign to `x` is the empty type, `Nothing`.
 
 **_Exercise 6.8._** Recalling that `True` is the type alias for `{1}` defined in the standard library, what's the result of this expression?
 

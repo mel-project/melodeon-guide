@@ -3,7 +3,7 @@
 The most important thing about types in Melodeon is that **types are sets of values**. Here are a few example types:
 
 - `{1}`: the set containing the single number `1`
-- `[{1}, {2}, {3}]}`: the set containing the single vector `[1, 2, 3]`
+- `[{1}, {2}, {3}]`: the set containing the single vector `[1, 2, 3]`
 - `Nat`: the set of all natural numbers
 - `Any`: all values belong to the type `Any`
 - `Nothing`: no values belong to the type `Nothing`

@@ -4,7 +4,7 @@ Because it is a functional language without side effects, all useful computation
 
 ## Operators
 
-Literals representing [values](./simple_types.md) are the simplest Melodeon expressions. The following built-in operators provide building-blocks for more complex expressions. As explained below, the operators are grouped by input. In the `Precedence` field, a larger value signifies a higher order of precedence ("tighter" binding).
+Literals representing [values](./3_simple_types.md) are the simplest Melodeon expressions. The following built-in operators provide building-blocks for more complex expressions. As explained below, the operators are grouped by input. In the `Precedence` field, a larger value signifies a higher order of precedence ("tighter" binding).
 
 Also, try out the operators in the REPL as you read along!
 
@@ -43,7 +43,7 @@ Melodeon compilation failed
 | <code>x &#124;&#124; y</code> | short-circuiting `x` or `y`  | 1          |
 | `x && y`                      | short-circuiting `x` and `y` | 1          |
 
-Logical operators take _any value_ as input, interpreting their inputs as booleans. As mentioned in the section on [values](simple_types.md), `0` is "falsy" and every other value is "truthy".
+Logical operators take _any value_ as input, interpreting their inputs as booleans. As mentioned in the section on [values](./3_simple_types.md), `0` is "falsy" and every other value is "truthy".
 
 Examples:
 
@@ -81,7 +81,7 @@ Short-circuiting logical operators enable neat JavaScript-style idioms in Melode
 x is Nat && x * 2
 ```
 
-In this expression, `x is Nat` is a boolean expression that evaluates to true if `x` is a member of type `Nat` (you can read about the `is` operator in [Advanced Types](advanced_types.md)). Because `&&` has short-circuit logic, if `x is Nat`, then we'll get the result of `x * 2`. If `x is Nat` is false, then `x * 2` will never be evaluated, so we won't ever get a type error.
+In this expression, `x is Nat` is a boolean expression that evaluates to true if `x` is a member of type `Nat` (you can read about the `is` operator in [Advanced Types](6_advanced_types.md)). Because `&&` has short-circuit logic, if `x is Nat`, then we'll get the result of `x * 2`. If `x is Nat` is false, then `x * 2` will never be evaluated, so we won't ever get a type error.
 
 **_Exercise 4.1._** What does `0 || ([1] && "hello")` evaluate to?
 
@@ -169,6 +169,8 @@ melorun> let v = [1, 2, 3] in v[0..3]
 [1, 2, 3]
 ```
 
+(note that `let v = expr in body` binds the variable `v` to the expression `expr` and evaluates `body`; we will discuss this further later)
+
 #### Update
 
 Here are a few examples of update. They emphasizes that update does _not_ mutate the vector:
@@ -202,7 +204,7 @@ vec[1 => "haha"] ++ vec[1..2]
 | -------- | -------------------------------------------------------------------------- | ---------- |
 | `s.x`    | field access: returns the value associated with field `x` of structure `s` | 8          |
 
-This operator is analogous to vector reference. It's included here for completeness; learn about structures and field access in [`Advanced Types`](advanced_types.md) and `let` expressions below.
+This operator is analogous to vector reference. It's included here for completeness; learn about structures and field access in [`Advanced Types`](6_advanced_types.md) and `let` expressions below.
 
 For example, given a file containing this definition:
 
@@ -301,7 +303,7 @@ melorun> let x = 1, y = 2 in x + y
 
 Melodeon has three _bounded_ iteration constructs: `for`, `fold`, and `loop`. Each has a _stopping value_ that determines how many iterations are executed. This is the vector length in `for` and `fold` and the iteration number in `loop`. To prevent unbounded computation (whose fees cannot be pre-determined!), this stopping value must be known at compile time—that is, it must be a constant expression.
 
-A constant expression is either a number whose values is known at compile time, or such numbers combined with `+` and `*`. Numeric constants like `1` and `5` are constant expressions; so are `3 + 5` and `1 * 4`. Constant generics are the final kind of constant expressions: learn about them in [Advanced Types](advanced_types.md)!
+A constant expression is either a number whose value is known at compile time, or such numbers combined with `+` and `*` (other operators cannot be used in constant expressions). Numeric constants like `1` and `5` are constant expressions; so are `3 + 5` and `1 * 4`. Constant generics are the final kind of constant expressions: learn about them in [Advanced Types](6_advanced_types.md)!
 
 Melodeon does not currently support any form of recursion. We are considering adding provably bounded recursion similar to `Fixpoint` in Coq in the future.
 
@@ -336,7 +338,7 @@ melorun> for n in [1, 2, 3] collect "4"
 ["4", "4", "4"]
 ```
 
-`for` only works on fixed-length vectors, as we explained above. For example, if we [cast](advanced_types.md) the type of `[1, 2, 3]` in the first example above to a dynamic-length vector, then it will fail to compile.
+`for` only works on fixed-length vectors, as we explained above. For example, if we [cast](6_advanced_types.md) the type of `[1, 2, 3]` in the first example above to a dynamic-length vector, then it will fail to compile.
 
 ```
 melorun> for x in ([1, 2, 3] :: [Nat;]) collect x + 1
